@@ -36,6 +36,7 @@ module.exports = class FacebookTokenStrategy extends OAuth2Strategy {
 
     this.name = 'facebook-token';
     this._accessTokenField = options.accessTokenField || 'access_token';
+    
     this._refreshTokenField = options.refreshTokenField || 'refresh_token';
     this._profileURL = options.profileURL || `https://graph.facebook.com/${_fbGraphVersion}/me`;
     this._profileFields = options.profileFields || ['id', 'displayName', 'name', 'emails'];
@@ -119,11 +120,12 @@ module.exports = class FacebookTokenStrategy extends OAuth2Strategy {
         const json = JSON.parse(body);
 
         // Get image URL based on profileImage options
+        // TODO: salvarla sul db di GELATO
         let imageUrl = new URL(`https://graph.facebook.com/${this._fbGraphVersion}/${json.id}/picture`);
         if (this._profileImage.width) imageUrl.search = `width=${this._profileImage.width}`;
         if (this._profileImage.height) imageUrl.search = `${imageUrl.search ? imageUrl.search + '&' : ''}height=${this._profileImage.height}`;
         imageUrl.search = `${imageUrl.search ? imageUrl.search : 'type=large'}`;
-        imageUrl = imageUrl.toString();
+        imageUrl = imageUrl.toString() + `&access_token=${accessToken}`;
 
         const profile = {
           provider: 'facebook',
