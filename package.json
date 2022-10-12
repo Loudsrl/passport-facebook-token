@@ -1,5 +1,5 @@
 {
-  "name": "passport-facebook-token",
+  "name": "@lmaj/passport-facebook-token",
   "version": "4.0.0",
   "description": "Facebook token authentication strategy for Passport",
   "license": "MIT",
@@ -11,19 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/drudge/passport-facebook-token.git"
+    "url": "git+https://github.com/drudge/passport-facebook-token.git"
   },
-  "author": {
-    "name": "Nicholas Penree",
-    "email": "nick@penree.com",
-    "url": "http://www.penree.com/"
-  },
+  "author": "Nicholas Penree <nick@penree.com> (http://www.penree.com/)",
   "contributors": [
-    {
-      "name": "Eugene Obrezkov",
-      "email": "ghaiklor@gmail.com",
-      "url:": "https://ghaiklor.com"
-    }
+    "Eugene Obrezkov <ghaiklor@gmail.com>"
   ],
   "keywords": [
     "passport",
@@ -42,8 +34,7 @@
   "scripts": {
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --fix .",
-    "prepublishOnly": "npm run test && npm run lint",
-    "test": "nyc mocha"
+    "prepublishOnly": "npm run test && npm run lint"
   },
   "dependencies": {
     "passport-oauth": "1.0.0"
@@ -61,5 +52,8 @@
     "mocha": "8.0.1",
     "nyc": "15.1.0",
     "sinon": "9.0.2"
+  },
+  "directories": {
+    "test": "test"
   }
 }
