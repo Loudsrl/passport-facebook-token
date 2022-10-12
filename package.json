@@ -34,7 +34,8 @@
   "scripts": {
     "coveralls": "cat coverage/lcov.info | coveralls",
     "lint": "eslint --fix .",
-    "prepublishOnly": "npm run test && npm run lint"
+    "prepublishOnly": "npm run test && npm run lint",
+    "test": ""
   },
   "dependencies": {
     "passport-oauth": "1.0.0"
